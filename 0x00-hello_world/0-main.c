@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 /** 
- * main - Entery point
+ * main - Entry point
  *
  * Return: Always 0 (Success)
- * */
+ */
 int main(void)
 {
-	printf("hello World\n"};
+	printf("Hello World\n"};
 	return (0);
 }

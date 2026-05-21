@@ -3,7 +3,7 @@
 
 void print_numbers(void)
 {
-char nums[] = "01356789";
+char nums[] = "0123456789";
 int i;
 
 for (i = 0; nums[i] != '\0'; i++)

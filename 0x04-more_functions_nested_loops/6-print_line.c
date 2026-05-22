@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * print_line - prints lines based on specific inputs on print messages
+ * print_line - prints lines based on specific amount of numbers assigned on a variable n and do print empty numbers if the n is less than or equal to 0.
  */
 void print_line(int n)
 {

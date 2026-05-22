@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * more_functions - prints numbers from 0-14 and only uses 3 _putchar's
+ * more_numbers - prints numbers from 0-14 and only uses 3 _putchar's
  *
  */
 

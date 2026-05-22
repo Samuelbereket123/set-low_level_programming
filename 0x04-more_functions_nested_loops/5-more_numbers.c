@@ -2,21 +2,20 @@
 
 void more_numbers(void)
 {
-	int i = 0;
-	int j;
+	char *nums = "01234567891011121314";
+	int i;
+	int j = 0;
 
-	while (i < 10) 
+	for (i = 0; i < 10; i++)
 	{
 		j = 0;
 
-		while ( j < 10) 
+		while (nums[j] != '\0')
 		{
-			_putchar(j + '0');
-			j ++;
+			_putchar(nums[j]);
+			j++;
 		}
 
 		_putchar('\n');
-
-		i++;
 	}
 }

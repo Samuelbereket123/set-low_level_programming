@@ -1,7 +1,12 @@
 #include "main.h"
 /**
- * print_line - prints lines based on specific amount of numbers assigned on a variable n and do print empty numbers if the n is less than or equal to 0.
+ * print_line - draws a straight line in the terminal
+ * @n: number of times the character '_' should be printed
+ *
+ * Description: prints '_' n times followed by a newline.
+ * If n is 0 or less, only a newline is printed.
  */
+ /
 void print_line(int n)
 {
 	int i;

@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * _putchar prints the numbers from 0-9 but will exclude 2 and 4
+ *
+ */
+
 void print_most_numbers(void)
 {
 	char nums[] = "01356789";

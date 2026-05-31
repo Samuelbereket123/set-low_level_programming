@@ -1,13 +1,9 @@
 #include "main.h"
 #include <stdio.h>
-int main(void)
+
+
+void reset_to_98(int *n)
 {
-	int n = 1;
-	int *p = &n;
-	
-
-	*p = 402;
-	printf("%d\n", n);
-
-	return(0);
+	*n = 98;
 }
+

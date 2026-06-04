@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * puts_half - prints the second half of a string
+ * @str: pointer to the string
+ *
+ * Return: nothing
+ */
+
 void puts_half(char *str)
 {
 	int len = 0;

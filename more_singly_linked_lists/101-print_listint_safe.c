@@ -6,18 +6,19 @@
  * print_listint_safe - prints a listint_t linked list safely
  * @head: pointer to the head of the list
  *
- * Return: number of nodes in the list
+ * Return: number of nodes
  */
 size_t print_listint_safe(const listint_t *head)
 {
 	const listint_t *current;
 	const listint_t **nodes;
+	const listint_t **new_nodes;
 	size_t count;
 	size_t i;
 
 	current = head;
-	count = 0;
 	nodes = NULL;
+	count = 0;
 
 	while (current != NULL)
 	{
@@ -34,13 +35,26 @@ size_t print_listint_safe(const listint_t *head)
 		}
 
 		printf("[%p] %d\n", (void *)current, current->n);
+
+		new_nodes = malloc((count + 1) * sizeof(*new_nodes));
+		if (new_nodes == NULL)
+		{
+			free(nodes);
+			exit(98);
+		}
+
+		i = 0;
+		while (i < count)
+		{
+			new_nodes[i] = nodes[i];
+			i++;
+		}
+
+		new_nodes[count] = current;
+		free(nodes);
+		nodes = new_nodes;
 		count++;
 
-		nodes = realloc(nodes, count * sizeof(*nodes));
-		if (nodes == NULL)
-			exit(98);
-
-		nodes[count - 1] = current;
 		current = current->next;
 	}
 

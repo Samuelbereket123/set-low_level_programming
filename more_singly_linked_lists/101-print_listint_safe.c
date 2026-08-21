@@ -3,6 +3,40 @@
 #include <stdlib.h>
 
 /**
+ * add_node_to_array - adds a node address to an array
+ * @nodes: array of node addresses
+ * @count: current number of nodes
+ * @node: node to add
+ *
+ * Return: new array
+ */
+const listint_t **add_node_to_array(const listint_t **nodes,
+				    size_t count, const listint_t *node)
+{
+	const listint_t **new_nodes;
+	size_t i;
+
+	new_nodes = malloc((count + 1) * sizeof(*new_nodes));
+	if (new_nodes == NULL)
+	{
+		free(nodes);
+		exit(98);
+	}
+
+	i = 0;
+	while (i < count)
+	{
+		new_nodes[i] = nodes[i];
+		i++;
+	}
+
+	new_nodes[count] = node;
+	free(nodes);
+
+	return (new_nodes);
+}
+
+/**
  * print_listint_safe - prints a listint_t linked list safely
  * @head: pointer to the head of the list
  *
@@ -12,7 +46,6 @@ size_t print_listint_safe(const listint_t *head)
 {
 	const listint_t *current;
 	const listint_t **nodes;
-	const listint_t **new_nodes;
 	size_t count;
 	size_t i;
 
@@ -35,26 +68,8 @@ size_t print_listint_safe(const listint_t *head)
 		}
 
 		printf("[%p] %d\n", (void *)current, current->n);
-
-		new_nodes = malloc((count + 1) * sizeof(*new_nodes));
-		if (new_nodes == NULL)
-		{
-			free(nodes);
-			exit(98);
-		}
-
-		i = 0;
-		while (i < count)
-		{
-			new_nodes[i] = nodes[i];
-			i++;
-		}
-
-		new_nodes[count] = current;
-		free(nodes);
-		nodes = new_nodes;
+		nodes = add_node_to_array(nodes, count, current);
 		count++;
-
 		current = current->next;
 	}
 

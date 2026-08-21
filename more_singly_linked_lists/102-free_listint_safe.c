@@ -2,15 +2,15 @@
 #include <stdlib.h>
 
 /**
- * add_node_to_array - adds a node to an array
+ * add_node_to_free_array - adds a node to an array
  * @nodes: array of node pointers
  * @count: number of nodes
  * @node: node to add
  *
  * Return: new array
  */
-listint_t **add_node_to_array(listint_t **nodes, size_t count,
-			      listint_t *node)
+listint_t **add_node_to_free_array(listint_t **nodes, size_t count,
+				   listint_t *node)
 {
 	listint_t **new_nodes;
 	size_t i;
@@ -71,7 +71,7 @@ size_t free_listint_safe(listint_t **h)
 		}
 
 		next = current->next;
-		nodes = add_node_to_array(nodes, count, current);
+		nodes = add_node_to_free_array(nodes, count, current);
 		free(current);
 		count++;
 		current = next;

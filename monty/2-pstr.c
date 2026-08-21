@@ -3,7 +3,7 @@
 /**
  * pstr - prints the string starting at the top of the stack
  * @stack: pointer to the stack
- * @line_number: line number of the opcode
+ * @line_number: line number of the instruction
  *
  * Return: Nothing
  */
@@ -21,9 +21,9 @@ void pstr(stack_t **stack, unsigned int line_number)
 
 	current = *stack;
 
-	while (current != NULL && current->n != 0)
+	while (current != NULL)
 	{
-		if (current->n < 0 || current->n > 127)
+		if (current->n == 0 || current->n < 0 || current->n > 127)
 			break;
 
 		printf("%c", current->n);
